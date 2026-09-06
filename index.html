@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="description"
+    content="CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs">
+  <meta property="og:title" content="CoralscapesV2" />
+  <meta property="og:description"
+    content="CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs" />
+  <meta property="og:url" content="https://josauder.github.io/coralscapesv2/" />
+  <meta property="og:image" content="https://josauder.github.io/coralscapesv2/static/images/og_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs">
+  <meta name="twitter:description"
+    content="CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs">
+  <meta name="twitter:image" content="https://josauder.github.io/coralscapesv2/static/images/og_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords"
+    content="coral reef,panoptic segmentation,fish instance segmentation,semantic segmentation,deep learning,ai,red sea,dataset,dinov3">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CoralscapesV2</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <span class="v2-badge">CoralscapesV2</span>
+            <h1 class="title is-1 publication-title"><b>CoralscapesV2:</b> <br>
+              Panoptic and Fine-Grained<br> Visual Scene Understanding in Coral Reefs</h1>
+            <div class="is-size-5 publication-authors">
+              <br>
+              <!-- VENUE: update this line once the venue is confirmed -->
+              <span>Under Review &middot; Preprint on OpenReview</span>
+              <br>
+              <!-- ============================================================
+                   AUTHOR LINKS: to add a personal website for an author, put
+                   the URL in that author's href="". Leave href="#" if none.
+                   ============================================================ -->
+              <span class="author-block">
+                <a href="https://josauder.github.io/" target="_blank">Jonathan Sauder</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Thomas Ruckli</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Gabriel&#279; Strodomskyt&#279;</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Ibrahim Souleiman Abdallah</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Rahma Hassan Abdi</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Djama Goumaneh Awaleh</a><sup>4</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Mohamed Houssein Farah</a><sup>4</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Moustapha Nour</a><sup>5</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Osama Sharhubil Saad</a><sup>6</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Mustafa Mohammed Khalafallah Altaib</a><sup>6</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Maysoon Kteifan</a><sup>7</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Farah Alsoqi</a><sup>7</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Eyad Zgool</a><sup>7</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Jafar Al-Omari</a><sup>8</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Temesgen Gebremeskel Gebreluel</a><sup>9</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Zekaria Zekeria Abdulkerim</a><sup>9</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Meron Ghirmay</a><sup>9</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Teklehaimanot Beraki</a><sup>10</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=p3iJiLIAAAAJ&hl=en&oi=ao"
+                  target="_blank">Devis Tuia</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=ApxnBkYAAAAJ&hl=en&oi=ao"
+                  target="_blank">Guilhem Banc-Prandi</a><sup>2</sup></span>
+
+              <div class="is-size-6" style="margin-top: 1rem; color:#555;">
+                <sup>1</sup>MIT &nbsp; <sup>2</sup>EPFL &nbsp; <sup>3</sup>University of Djibouti &nbsp;
+                <sup>4</sup>Ministry of Environment and Sustainable Development of Djibouti &nbsp;
+                <sup>5</sup>Centre d'&Eacute;tudes et de Recherche de Djibouti &nbsp;
+                <sup>6</sup>Red Sea University of Port Sudan &nbsp;
+                <sup>7</sup>Aqaba Marine Reserve, Jordan &nbsp;
+                <sup>8</sup>United Nations Development Programme Jordan &nbsp;
+                <sup>9</sup>Department of Biology, Mai Nefhi College of Science, Eritrea &nbsp;
+                <sup>10</sup>Ministry of Marine Resources, Massawa, Eritrea
+              </div>
+            </div>
+
+            <!-- Primary institution logos (greyed) -->
+            <div class="logo-row is-primary">
+              <a href="https://www.mit.edu" target="_blank"><img src="static/images/logos/mit_bw.png"
+                  alt="MIT Logo" /></a>
+              <a href="http://epfl.ch" target="_blank"><img src="static/images/epfl_bw.png" alt="EPFL Logo" /></a>
+              <a href="http://trsc.org" target="_blank"><img src="static/images/trsc_bw.png" alt="TRSC Logo" /></a>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PAPER LINK: replace with the arXiv URL once available -->
+                <span class="link-block">
+                  <a href="https://openreview.net/forum?id=Ea61c2FDbj" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/josauder/dinov3_lora_dpt_coralscapes" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/josauder/coralscapesV2" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-arrow-down"></i>
+                    </span>
+                    <span>Download Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#models" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/huggingface.svg" height="100px">
+                    </span>
+                    <span>Models</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop playsinline width="100%">
+          <!-- Replace with the full-length H.264 clip at the same path when ready -->
+          <source src="static/videos/banner_video_v2.mp4" type="video/mp4">
+        </video>
+        <p class="is-size-7 has-text-centered" style="margin-top:0.5rem; color:#777;">
+          Panoptic prediction: dense semantic classes for the benthos and individual instance masks for every fish.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+
+  <!-- Abstract / summary -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">CoralscapesV2</h2>
+          <h2 class="subtitle has-text-centered">
+            CoralscapesV2 extends the <a href="https://josauder.github.io/coralscapes" target="_blank">Coralscapes</a>
+            dataset into the first <b>panoptic segmentation</b> dataset for coral reefs. It grows the dataset along
+            every axis, refines the label set from 39 to <b>95 fine-grained visual categories</b>, and adds
+            <b>65k exhaustive fish instance masks</b> annotated with video context &mdash; enabling general-purpose,
+            fine-grained scene understanding for scalable reef monitoring.
+          </h2>
+
+          <div class="contrib-cards">
+            <div class="contrib-card">
+              <div class="contrib-icon"><i class="fas fa-layer-group"></i></div>
+              <h3>Bigger &amp; Denser</h3>
+              <p>2433 densely annotated video frames and 270k polygons across 55 reef sites in the Red Sea region, with
+                higher and more consistent annotation density and thoroughly reviewed masks.</p>
+            </div>
+            <div class="contrib-card">
+              <div class="contrib-icon"><i class="fas fa-tags"></i></div>
+              <h3>95 Fine-Grained Classes</h3>
+              <p>A refined label set capturing more coral taxa and morphotypes, composite health status
+                (alive / bleached / dead / algae-covered), and disambiguated auxiliary classes.</p>
+            </div>
+            <div class="contrib-card">
+              <div class="contrib-icon"><i class="fas fa-fish"></i></div>
+              <h3>Exhaustive Fish Instances</h3>
+              <p>65,738 fish annotated as individual instances using the surrounding video &mdash; revealing that 56% of
+                fish are missed when annotating from static frames alone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- V1 vs V2 stats -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">From Coralscapes to CoralscapesV2</h2>
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable stats-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="has-text-centered">Coralscapes (V1)</th>
+                  <th class="has-text-centered">CoralscapesV2</th>
+                  <th class="has-text-centered">Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Annotated polygons</td>
+                  <td class="has-text-centered">174k</td>
+                  <td class="has-text-centered">270k</td>
+                  <td class="has-text-centered change-pos">+55%</td>
+                </tr>
+                <tr>
+                  <td>Annotated images</td>
+                  <td class="has-text-centered">2075</td>
+                  <td class="has-text-centered">2433</td>
+                  <td class="has-text-centered change-pos">+17%</td>
+                </tr>
+                <tr>
+                  <td>Annotated fish</td>
+                  <td class="has-text-centered">22k</td>
+                  <td class="has-text-centered">65k</td>
+                  <td class="has-text-centered change-pos">+195%</td>
+                </tr>
+                <tr>
+                  <td>Label classes</td>
+                  <td class="has-text-centered">39</td>
+                  <td class="has-text-centered">95</td>
+                  <td class="has-text-centered change-pos">+143%</td>
+                </tr>
+                <tr>
+                  <td>Reef sites</td>
+                  <td class="has-text-centered">45</td>
+                  <td class="has-text-centered">55</td>
+                  <td class="has-text-centered change-pos">+22%</td>
+                </tr>
+                <tr>
+                  <td>Average label density</td>
+                  <td class="has-text-centered">82.9%</td>
+                  <td class="has-text-centered">86.8%</td>
+                  <td class="has-text-centered change-pos">+4.7%</td>
+                </tr>
+                <tr>
+                  <td>Minimum label density</td>
+                  <td class="has-text-centered">40%</td>
+                  <td class="has-text-centered">60%</td>
+                  <td class="has-text-centered change-pos">+50%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Easy to use -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Easy to use</h2>
+          <p>The dataset is hosted on the
+            <a href="https://huggingface.co/datasets/josauder/coralscapesV2" target="_blank">Hugging Face Hub</a>
+            and is released under the Apache 2.0 license. Use it with the
+            <a href="https://huggingface.co/docs/datasets/en/installation" target="_blank"><code>datasets</code></a>
+            package:</p>
+          <pre><code class="language-bash">pip install datasets numpy</code></pre>
+
+          <p><b>Semantic segmentation</b> &mdash; RGB images and 95-class semantic masks (the default configuration):</p>
+          <pre><code class="language-python">from datasets import load_dataset
+
+dataset = load_dataset("josauder/coralscapesV2")
+image = dataset["train"][0]["image"]   # (1024, 2048, 3) uint8
+label = dataset["train"][0]["label"]   # (1024, 2048)    uint8, values 0-95</code></pre>
+
+          <p><b>Fish instance segmentation</b> &mdash; add per-fish instance masks
+            (fish is class 25, per-fish IDs are <code>25 * 2000 + instance_index</code>):</p>
+          <pre><code class="language-python">import numpy as np
+from datasets import load_dataset
+
+ds = load_dataset("josauder/coralscapesV2", "instances", split="train")
+row = ds[0]
+
+instance_map = np.asarray(row["instance_ids"], dtype=np.uint16)
+fish_ids = np.unique(instance_map[instance_map // 2000 == 25])
+fish_masks = {int(i): (instance_map == i) for i in fish_ids}</code></pre>
+
+          <p><b>Video sequences</b> &mdash; 31-frame clips (offsets -20..+10) around each labeled anchor frame;
+            stream to avoid the ~206 GB download:</p>
+          <pre><code class="language-python">from datasets import load_dataset
+
+seqs = load_dataset("josauder/coralscapesV2", "sequences", split="train", streaming=True)
+clip = next(iter(seqs))
+
+frames = clip["frames"]                  # 31 RGB frames
+anchor = frames[clip["anchor_index"]]    # labeled frame (anchor_index == 20)
+label = clip["label"]                    # semantic mask for the anchor frame</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Class figure -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">95 Fine-Grained Classes</h2>
+          <h2 class="subtitle has-text-centered">
+            CoralscapesV2 extends the label set from 39 to 95 fine-grained visual categories, capturing more taxa,
+            coral morphotypes, health status, and new auxiliary classes.
+          </h2>
+          <div class="legend-grid">
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(179,245,234);"></span>Acanthaster Planci</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(236,128,255);"></span>Acropora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,236,254);"></span>Acropora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(118,63,128);"></span>Acropora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(208,207,58);"></span>Algae Covered Brain Coral</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(6,71,245);"></span>Algae Covered Branching Coral</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(50,208,130);"></span>Algae Covered Lobophylliidae</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(67,182,208);"></span>Algae Covered Massive Coral</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(225,109,77);"></span>Algae Covered Pocillopora</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(173,81,130);"></span>Algae Covered Porites</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(125,163,125);"></span>Algae Covered Substrate</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(48,162,221);"></span>Algae Covered Table Acropora</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,255,189);"></span>Anemone</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(29,162,216);"></span>Background</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(114,78,120);"></span>Brain Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(219,67,238);"></span>Brain Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(78,172,99);"></span>Brain Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(226,91,157);"></span>Branching Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(252,231,240);"></span>Branching Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(123,50,86);"></span>Branching Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(6,189,22);"></span>Cirrhipathes</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(31,31,31);"></span>Dark</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(89,155,134);"></span>Dead Giant Clam</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(159,186,38);"></span>Feather Worm</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,255,0);"></span>Fish</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(100,133,248);"></span>Fungiidae Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(200,138,27);"></span>Fungiidae Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(3,92,44);"></span>Fungiidae Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(96,188,108);"></span>Galaxea Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(67,243,60);"></span>Galaxea Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(176,225,11);"></span>Galaxea Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(189,255,234);"></span>Giant Clam</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(181,5,120);"></span>Goniopora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(179,191,30);"></span>Goniopora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(109,232,188);"></span>Hard Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(70,247,149);"></span>Hard Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(114,15,203);"></span>Hard Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(125,125,125);"></span>Hard Substrate</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,0,0);"></span>Human</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(151,171,80);"></span>Human-Made Structure</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(86,184,94);"></span>Leather Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(201,73,234);"></span>Lobophylliidae Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(253,187,79);"></span>Lobophylliidae Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(57,106,220);"></span>Lobophylliidae Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(236,150,21);"></span>Massive Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,248,228);"></span>Massive Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(134,86,18);"></span>Massive Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(230,193,0);"></span>Meandering Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(251,243,216);"></span>Meandering Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(119,100,14);"></span>Meandering Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(244,150,115);"></span>Millepora</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(164,226,52);"></span>Millepora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(119,128,174);"></span>Millepora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(132,109,91);"></span>Nephtheidae Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,255,255);"></span>Other Animal</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(224,118,119);"></span>Other Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(250,224,225);"></span>Other Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(114,60,61);"></span>Other Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(13,191,102);"></span>Pavona Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(118,249,130);"></span>Pavona Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(141,130,175);"></span>Pavona Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,146,150);"></span>Pocillopora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(250,219,220);"></span>Pocillopora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(130,66,66);"></span>Pocillopora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,209,71);"></span>Porites Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(213,10,25);"></span>Porites Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(40,24,243);"></span>Porites Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(161,153,128);"></span>Rubble</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(194,178,128);"></span>Sand</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,231,255);"></span>Sea Cucumber</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,142,255);"></span>Sea Urchin</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(125,222,125);"></span>Seagrass</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(191,19,6);"></span>Seriatopora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(247,89,191);"></span>Seriatopora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(75,131,128);"></span>Seriatopora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(147,144,54);"></span>Soft Coral (Malacalcyonacea) Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(7,227,247);"></span>Soft Coral (Malacalcyonacea) Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(240,80,80);"></span>Sponge</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,111,194);"></span>Stylophora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,220,241);"></span>Stylophora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(123,54,94);"></span>Stylophora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(189,119,255);"></span>Table Acropora Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(244,233,253);"></span>Table Acropora Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(85,53,116);"></span>Table Acropora Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(91,28,190);"></span>Thin Plate/Encrusting Coral Alive</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(42,209,57);"></span>Thin Plate/Encrusting Coral Bleached</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(8,19,242);"></span>Thin Plate/Encrusting Coral Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,255,0);"></span>Transect Line</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(8,205,12);"></span>Transect Tools</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,0,134);"></span>Trash</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(228,255,119);"></span>Turbinaria</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(169,30,70);"></span>Turbinaria Dead</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(31,0,166);"></span>Water Column</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,255,248);"></span>Water Surface</span>
+            <span class="legend-item"><span class="legend-swatch" style="background: rgb(139,142,168);"></span>Xeniidae Alive</span>
+          </div>
+          <img src="static/images/fig_class_counts.png"
+            alt="CoralscapesV2 classes with polygon and pixel counts per split" width="100%"
+            style="margin-top: 1.5rem;" />
+          <p class="is-size-7 has-text-centered" style="color:#777;">
+            The 39 V1 classes (left) map into 95 fine-grained V2 classes, shown with their polygon and pixel counts in
+            each dataset split.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Fish instances -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">65k Exhaustive Fish Instances</h2>
+          <h2 class="subtitle has-text-centered">
+            Every fish in each frame is annotated as an individual instance using a 4-second video &mdash; even fish
+            that are occluded, tiny, camouflaged, or only distinguishable through motion. This makes CoralscapesV2 the
+            first panoptic segmentation dataset for coral reefs.
+          </h2>
+          <img src="static/images/fig_fish_instances.png" alt="Fish instance masks in CoralscapesV2" width="100%" />
+          <p class="is-size-7 has-text-centered" style="color:#777;">
+            Fish instance masks (each fish shown in a random color). Comparing against V1's static-frame annotations
+            reveals that 56.1% of fish were missed without video context.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Improved annotations -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Denser, Higher-Quality Annotations</h2>
+          <h2 class="subtitle has-text-centered">
+            Existing frames were re-reviewed and improved: more of each frame is annotated, auxiliary classes are
+            applied more consistently, legacy Segment-Anything border artifacts are removed, and small dead or dark
+            patches are filled in.
+          </h2>
+          <img src="static/images/fig_improvements.png"
+            alt="Annotation improvements from Coralscapes V1 to V2" width="100%" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel has-text-centered">
+          <div class="item">
+            <img src="static/images/fig_new_frames.png" alt="New annotated frames in CoralscapesV2" width="100%" />
+            <h2 class="subtitle has-text-centered">More scenes: 358 new frames broaden the diversity of the dataset</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/fig_fish_diff.png" alt="Fish annotation difference between V1 and V2"
+              width="100%" />
+            <h2 class="subtitle has-text-centered">Video-based fish annotation recovers fish missed in V1</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/fig_aux_classes.png" alt="New auxiliary classes in CoralscapesV2" width="100%" />
+            <h2 class="subtitle has-text-centered">New auxiliary classes: water column, water surface, background</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/fig_predictions.png" alt="Qualitative segmentation predictions" width="100%" />
+            <h2 class="subtitle has-text-centered">Qualitative predictions: SegFormer and DINOv3 models on the V2 test
+              set</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
+
+
+  <!-- Pretrained models -->
+  <section class="section section-anchor" id="models">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Pretrained Models</h2>
+          <h2 class="subtitle has-text-centered">
+            We release semantic segmentation models trained on CoralscapesV2, in both the fine-grained 95-class set and
+            the legacy 39-class set. All models are trained with the
+            <a href="https://github.com/josauder/dinov3_lora_dpt_coralscapes" target="_blank">dinov3_lora_dpt_coralscapes</a>
+            repository.
+          </h2>
+
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable models-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th class="has-text-centered">Backbone</th>
+                  <th class="has-text-centered">Classes</th>
+                  <th class="has-text-centered">V2 Acc</th>
+                  <th class="has-text-centered">V2 mIoU</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>DINOv3 ViT-L + LoRA + DPT</td>
+                  <td class="has-text-centered">DINOv3 ViT-L</td>
+                  <td class="has-text-centered">39</td>
+                  <td class="has-text-centered metric">84.390</td>
+                  <td class="has-text-centered metric">66.086</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/coralscapesv2-dinov3-vitl-lora-dpt"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DINOv3 ViT-L + LoRA + DPT</td>
+                  <td class="has-text-centered">DINOv3 ViT-L</td>
+                  <td class="has-text-centered">95</td>
+                  <td class="has-text-centered metric">81.700</td>
+                  <td class="has-text-centered metric">40.221</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/coralscapesv2-dinov3-vitl-lora-dpt-95_class"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DINOv3 ViT-B + LoRA + DPT</td>
+                  <td class="has-text-centered">DINOv3 ViT-B</td>
+                  <td class="has-text-centered">39</td>
+                  <td class="has-text-centered metric">82.265</td>
+                  <td class="has-text-centered metric">60.810</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/coralscapesv2-dinov3-vitb-lora-dpt"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DINOv3 ViT-B + LoRA + DPT</td>
+                  <td class="has-text-centered">DINOv3 ViT-B</td>
+                  <td class="has-text-centered">95</td>
+                  <td class="has-text-centered metric">80.243</td>
+                  <td class="has-text-centered metric">36.918</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/coralscapesv2-dinov3-vitb-lora-dpt-95_class"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SegFormer MiT-B5</td>
+                  <td class="has-text-centered">MiT-B5</td>
+                  <td class="has-text-centered">39</td>
+                  <td class="has-text-centered metric">82.801</td>
+                  <td class="has-text-centered metric">59.020</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/segformer-b5-finetuned-coralscapesv2-1024-1024"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SegFormer MiT-B5</td>
+                  <td class="has-text-centered">MiT-B5</td>
+                  <td class="has-text-centered">95</td>
+                  <td class="has-text-centered metric">80.382</td>
+                  <td class="has-text-centered metric">37.177</td>
+                  <td class="has-text-centered">
+                    <a href="https://huggingface.co/EPFL-ECEO/segformer-b5-finetuned-coralscapesv2-1024-1024-95_class"
+                      target="_blank">HF</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="is-size-7" style="color:#777;">
+            Test-set pixel accuracy and mean IoU on CoralscapesV2, using the strided 2&times;1024&times;1024 prediction
+            protocol; metrics are reported in each model's native class set. The 95-class models are additionally
+            evaluated with predictions mapped to the 39-class set, and single-pass (768&times;1376) numbers are
+            reported in each model card.
+          </p>
+
+          <h3 class="title is-5" style="margin-top:2rem;">Run a SegFormer model</h3>
+          <pre><code class="language-python">from transformers import SegformerImageProcessor, SegformerForSemanticSegmentation
+from datasets import load_dataset
+
+repo = "EPFL-ECEO/segformer-b5-finetuned-coralscapesv2-1024-1024-95_class"
+image = load_dataset("josauder/coralscapesV2", split="test")[0]["image"]
+
+processor = SegformerImageProcessor.from_pretrained(repo)
+model = SegformerForSemanticSegmentation.from_pretrained(repo)
+
+inputs = processor(image, return_tensors="pt")
+outputs = model(**inputs)
+labels = processor.post_process_semantic_segmentation(
+    outputs, target_sizes=[(image.size[1], image.size[0])]
+)[0]</code></pre>
+
+          <h3 class="title is-5" style="margin-top:1.5rem;">Run a DINOv3 + LoRA + DPT model</h3>
+          <p class="is-size-7" style="color:#777;">The DINOv3 encoder is gated: accept the license at
+            <a href="https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m" target="_blank">facebook/dinov3</a>
+            and run <code>hf auth login</code> first.</p>
+          <pre><code class="language-python">import importlib.util, torch
+from pathlib import Path
+from huggingface_hub import snapshot_download
+from PIL import Image
+from datasets import load_dataset
+
+repo = "EPFL-ECEO/coralscapesv2-dinov3-vitl-lora-dpt-95_class"
+root = Path(snapshot_download(repo))
+
+# Load the inference class shipped with the model
+spec = importlib.util.spec_from_file_location("chm", root / "coralscapes_hub_model.py")
+chm = importlib.util.module_from_spec(spec); spec.loader.exec_module(chm)
+
+model = chm.Dinov3DPTSegmenter.from_pretrained(root).eval()
+
+image = load_dataset("josauder/coralscapesV2", split="test")[0]["image"].convert("RGB")
+image = image.resize((1376, 768), Image.BILINEAR)          # single-pass at 768x1376
+pixel_values = model.processor(images=image, return_tensors="pt", do_resize=False)["pixel_values"]
+with torch.no_grad():
+    logits = model(pixel_values)
+pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Partner institutions -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <h2 class="title is-3 has-text-centered">Institutions &amp; Partners</h2>
+          <p class="subtitle is-6">
+            CoralscapesV2 is the result of a collaboration across research institutions and local monitoring efforts in
+            the Red Sea region.
+          </p>
+          <div class="partner-row">
+            <!-- Add logo files to static/images/logos/ and reference them here as more become available. -->
+            <img src="static/images/eceo_bw.png" alt="EPFL ECEO" title="Environmental Computational Science and Earth Observation Laboratory, EPFL" />
+            <img src="static/images/undp.png" alt="United Nations Development Programme"
+              title="United Nations Development Programme Jordan" />
+            <img src="static/images/logos/univ_djibouti.png" alt="University of Djibouti"
+              title="University of Djibouti" />
+            <span class="partner-chip">Ministry of Environment and Sustainable Development of Djibouti</span>
+            <span class="partner-chip">Centre d'&Eacute;tudes et de Recherche de Djibouti</span>
+            <span class="partner-chip">Red Sea University of Port Sudan</span>
+            <span class="partner-chip">Aqaba Marine Reserve, Jordan</span>
+            <span class="partner-chip">Mai Nefhi College of Science, Eritrea</span>
+            <span class="partner-chip">Ministry of Marine Resources, Massawa, Eritrea</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Transnational Red Sea Center -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Transnational Red Sea Center</h2>
+        <div class="content has-text-justified">
+          <p>The <u><a href="http://trsc.org">Transnational Red Sea Center</a></u> is a scientific research center
+            created in 2019 at the Ecole Polytechnique f&eacute;d&eacute;rale in Lausanne (EPFL) with the official
+            support of the Swiss Foreign Ministry. An independent and not-for-profit organization, the Center
+            capitalizes on Switzerland's neutrality, its longstanding tradition of promoting dialogue and its
+            reputation for scientific excellence in order to bridge science and diplomacy for the future of coral
+            reefs. In the Red Sea and beyond.</p>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <div class="publication-video">
+              <iframe src="https://player.vimeo.com/video/903195229?h=011769df67" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p><a href="https://vimeo.com/903195229">The Seven Brothers Mission / November 2023</a> from <a
+                href="https://vimeo.com/trsc">TRSC</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{sauder2026coralscapesv2,
+  title={CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs},
+  author={Sauder, Jonathan and Ruckli, Thomas and Strodomskyt{\.e}, Gabriel{\.e} and Abdallah, Ibrahim Souleiman and Abdi, Rahma Hassan and Awaleh, Djama Goumaneh and Farah, Mohamed Houssein and Nour, Moustapha and Saad, Osama Sharhubil and Altaib, Mustafa Mohammed Khalafallah and Kteifan, Maysoon and Alsoqi, Farah and Zgool, Eyad and Al-Omari, Jafar and Gebreluel, Temesgen Gebremeskel and Abdulkerim, Zekaria Zekeria and Ghirmay, Meron and Beraki, Teklehaimanot and Tuia, Devis and Banc-Prandi, Guilhem},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in
+              the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
