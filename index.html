@@ -524,34 +524,7 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
   </section>-->
 
 
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel has-text-centered">
-          <div class="item">
-            <img src="static/images/fig_new_frames.png" alt="New annotated frames in CoralscapesV2" width="100%" />
-            <h2 class="subtitle has-text-centered">More scenes: 358 new frames broaden the diversity of the dataset</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/fig_fish_diff.png" alt="Fish annotation difference between V1 and V2"
-              width="100%" />
-            <h2 class="subtitle has-text-centered">Video-based fish annotation recovers fish missed in V1</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/fig_aux_classes.png" alt="New auxiliary classes in CoralscapesV2" width="100%" />
-            <h2 class="subtitle has-text-centered">New auxiliary classes: water column, water surface, background</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/fig_predictions.png" alt="Qualitative segmentation predictions" width="100%" />
-            <h2 class="subtitle has-text-centered">Qualitative predictions: SegFormer and DINOv3 models on the V2 test
-              set</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End image carousel -->
+  
 
 
   <!-- Pretrained models -->
@@ -699,7 +672,34 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
 
 
   
-
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel has-text-centered">
+        <div class="item">
+          <img src="static/images/fig_new_frames.png" alt="New annotated frames in CoralscapesV2" width="100%" />
+          <h2 class="subtitle has-text-centered">More scenes: 358 new frames broaden the diversity of the dataset</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/fig_fish_diff.png" alt="Fish annotation difference between V1 and V2"
+            width="100%" />
+          <h2 class="subtitle has-text-centered">Video-based fish annotation recovers fish missed in V1</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/fig_aux_classes.png" alt="New auxiliary classes in CoralscapesV2" width="100%" />
+          <h2 class="subtitle has-text-centered">New auxiliary classes: water column, water surface, background</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/fig_predictions.png" alt="Qualitative segmentation predictions" width="100%" />
+          <h2 class="subtitle has-text-centered">Qualitative predictions: SegFormer and DINOv3 models on the V2 test
+            set</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
 
   <!-- Transnational Red Sea Center -->
   <section class="hero is-small">
