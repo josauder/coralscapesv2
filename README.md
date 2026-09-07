@@ -8,7 +8,7 @@ The site is a single static `index.html` built on the [Academic Project Page Tem
 
 - All content lives in [`index.html`](index.html).
 - **Author links:** each author name is an `<a href="...">`. Search for `AUTHOR LINK` comments to paste a personal website URL for any author; leave `href="#"` if none.
-- **Paper link:** currently points to the OpenReview forum. Search for `PAPER LINK` to swap in the arXiv URL once available.
+- **Paper link:** points to the statically hosted PDF at `static/coralscapes_v2.pdf`. Search for `PAPER LINK` to swap in the arXiv URL once available.
 - **Video:** `static/videos/banner_video_v2.mp4`. Replace with a browser-safe H.264 `.mp4` at the same path.
 - **Logos:** greyscale institution logos live in `static/images/logos/`.
 
