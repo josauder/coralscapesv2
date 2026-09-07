@@ -55,9 +55,8 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title"><b>CoralscapesV2:</b> <br>
-              Panoptic and Fine-Grained<br> Visual Scene Understanding in Coral Reefs</h1>
+              Panoptic and Fine-Grained Visual <br>Scene Understanding in Coral Reefs</h1>
             <div class="is-size-5 publication-authors">
-              <br>
               <span>ECCV 2026 Workshop on Marine Vision</span>
               <br>
               <!-- ============================================================
@@ -121,10 +120,30 @@
 
             <!-- Primary institution logos (greyed) -->
             <div class="logo-row is-primary">
-              <a href="https://www.mit.edu" target="_blank"><img src="static/images/logos/mit_bw.png"
+              <a href="https://beerylab.csail.mit.edu/" target="_blank"><img src="static/images/logos/mit_bw.png"
                   alt="MIT Logo" /></a>
-              <a href="http://epfl.ch" target="_blank"><img src="static/images/epfl_bw.png" alt="EPFL Logo" /></a>
+              <a href="https://www.epfl.ch/labs/eceo/" target="_blank"><img src="static/images/epfl_bw.png" alt="EPFL Logo" /></a>
               <a href="http://trsc.org" target="_blank"><img src="static/images/trsc_bw.png" alt="TRSC Logo" /></a>
+            </div>
+
+            <!-- Partner / collaborating institution logos (greyed), one row. -->
+            <!-- Add a logo to static/images/logos/ and add an <img> here to include a new institution. -->
+            <div class="logo-row is-partners">
+              <a href="https://www.univ.edu.dj" target="_blank"><img src="static/images/logos/univ_djibouti.png"
+                  alt="University of Djibouti" title="University of Djibouti" /></a>
+              <img src="static/images/logos/centre_d_etudes_et_recheche.jpg"
+                alt="Centre d'Etudes et de Recherche de Djibouti"
+                title="Centre d'Etudes et de Recherche de Djibouti" />
+              <img src="static/images/logos/red_sea_university_port_sudan.png"
+                alt="Red Sea University of Port Sudan" title="Red Sea University of Port Sudan" />
+              <a href="https://www.undp.org" target="_blank"><img src="static/images/logos/undp.png"
+                  alt="United Nations Development Programme" title="United Nations Development Programme Jordan" /></a>
+              <img src="static/images/logos/mai_nefhi_college.jpg" alt="Mai Nefhi College of Science, Eritrea"
+                title="Mai Nefhi College of Science, Eritrea" />
+              <img src="static/images/logos/ministry_of_marine_resources.jpg"
+                alt="Ministry of Marine Resources, Eritrea" title="Ministry of Marine Resources, Massawa, Eritrea" />
+              <img src="static/images/logos/aqaba_special_economic_zone.png"
+                alt="Aqaba Special Economic Zone Authority" title="Aqaba Special Economic Zone Authority" />
             </div>
 
             <div class="column has-text-centered">
@@ -205,7 +224,7 @@
             fine-grained scene understanding for scalable reef monitoring.
           </h2>
 
-          <div class="contrib-cards">
+          <!--<div class="contrib-cards">
             <div class="contrib-card">
               <div class="contrib-icon"><i class="fas fa-layer-group"></i></div>
               <h3>Bigger &amp; Denser</h3>
@@ -242,8 +261,8 @@
               <thead>
                 <tr>
                   <th></th>
-                  <th class="has-text-centered">Coralscapes (V1)</th>
-                  <th class="has-text-centered">CoralscapesV2</th>
+                  <th class="has-text-centered"><a href="https://josauder.github.io/coralscapes" target="_blank">V1</a></th>
+                  <th class="has-text-centered">V2</th>
                   <th class="has-text-centered">Change</th>
                 </tr>
               </thead>
@@ -309,8 +328,8 @@
             <a href="https://huggingface.co/datasets/josauder/coralscapesV2" target="_blank">Hugging Face Hub</a>
             and is released under the Apache 2.0 license. Use it with the
             <a href="https://huggingface.co/docs/datasets/en/installation" target="_blank"><code>datasets</code></a>
-            package:</p>
-          <pre><code class="language-bash">pip install datasets numpy</code></pre>
+            package.</p>
+          <!--<pre><code class="language-bash">pip install datasets numpy</code></pre>-->
 
           <p><b>Semantic segmentation</b> &mdash; RGB images and 95-class semantic masks (the default configuration):</p>
           <pre><code class="language-python">from datasets import load_dataset
@@ -357,7 +376,7 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
             CoralscapesV2 extends the label set from 39 to 95 fine-grained visual categories, capturing more taxa,
             coral morphotypes, health status, and new auxiliary classes.
           </h2>
-          <div class="legend-grid">
+          <!--<div class="legend-grid">
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(179,245,234);"></span>Acanthaster Planci</span>
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(236,128,255);"></span>Acropora Alive</span>
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(255,236,254);"></span>Acropora Bleached</span>
@@ -453,7 +472,7 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(31,0,166);"></span>Water Column</span>
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(0,255,248);"></span>Water Surface</span>
             <span class="legend-item"><span class="legend-swatch" style="background: rgb(139,142,168);"></span>Xeniidae Alive</span>
-          </div>
+          </div>-->
           <img src="static/images/fig_class_counts.png"
             alt="CoralscapesV2 classes with polygon and pixel counts per split" width="100%"
             style="margin-top: 1.5rem;" />
@@ -490,7 +509,7 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
 
 
   <!-- Improved annotations -->
-  <section class="section">
+  <!--<section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
@@ -505,7 +524,7 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
 
   <!-- Image carousel -->
@@ -688,34 +707,7 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
   </section>
 
 
-  <!-- Partner institutions -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths has-text-centered">
-          <h2 class="title is-3 has-text-centered">Institutions &amp; Partners</h2>
-          <p class="subtitle is-6">
-            CoralscapesV2 is the result of a collaboration across research institutions and local monitoring efforts in
-            the Red Sea region.
-          </p>
-          <div class="partner-row">
-            <!-- Add logo files to static/images/logos/ and reference them here as more become available. -->
-            <img src="static/images/eceo_bw.png" alt="EPFL ECEO" title="Environmental Computational Science and Earth Observation Laboratory, EPFL" />
-            <img src="static/images/logos/undp.png" alt="United Nations Development Programme"
-              title="United Nations Development Programme Jordan" />
-            <img src="static/images/logos/univ_djibouti.png" alt="University of Djibouti"
-              title="University of Djibouti" />
-            <span class="partner-chip">Ministry of Environment and Sustainable Development of Djibouti</span>
-            <span class="partner-chip">Centre d'&Eacute;tudes et de Recherche de Djibouti</span>
-            <span class="partner-chip">Red Sea University of Port Sudan</span>
-            <span class="partner-chip">Aqaba Marine Reserve, Jordan</span>
-            <span class="partner-chip">Mai Nefhi College of Science, Eritrea</span>
-            <span class="partner-chip">Ministry of Marine Resources, Massawa, Eritrea</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
 
   <!-- Transnational Red Sea Center -->
@@ -733,12 +725,7 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
         </div>
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <div class="publication-video">
-              <iframe src="https://player.vimeo.com/video/903195229?h=011769df67" frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p><a href="https://vimeo.com/903195229">The Seven Brothers Mission / November 2023</a> from <a
-                href="https://vimeo.com/trsc">TRSC</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1167138428?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Return to the Gulf of Tadjoura / Djibouti - Septembre 2025"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
           </div>
         </div>
       </div>
@@ -749,7 +736,7 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
+      <h2 class="title">Citation (BibTeX)</h2>
       <pre><code>@inproceedings{sauder2026coralscapesv2,
   title={CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs},
   author={Sauder, Jonathan and Ruckli, Thomas and Strodomskyt{\.e}, Gabriel{\.e} and Abdallah, Ibrahim Souleiman and Abdi, Rahma Hassan and Awaleh, Djama Goumaneh and Farah, Mohamed Houssein and Nour, Moustapha and Saad, Osama Sharhubil and Altaib, Mustafa Mohammed Khalafallah and Kteifan, Maysoon and Alsoqi, Farah and Zgool, Eyad and Al-Omari, Jafar and Gebreluel, Temesgen Gebremeskel and Abdulkerim, Zekaria Zekeria and Ghirmay, Meron and Beraki, Teklehaimanot and Tuia, Devis and Banc-Prandi, Guilhem},
@@ -781,6 +768,49 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
       </div>
     </div>
   </footer>
+
+  <!-- Add a "Copy" button to every code block and the BibTeX -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('pre').forEach(function (pre) {
+        var code = pre.querySelector('code');
+        if (!code || pre.querySelector('.copy-btn')) return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        var reset;
+        btn.addEventListener('click', function () {
+          var text = code.innerText;
+          var done = function () {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            clearTimeout(reset);
+            reset = setTimeout(function () {
+              btn.textContent = 'Copy';
+              btn.classList.remove('copied');
+            }, 1500);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fallback);
+          } else {
+            fallback();
+          }
+          function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+            document.body.removeChild(ta);
+          }
+        });
+        pre.appendChild(btn);
+      });
+    });
+  </script>
 
 </body>
 

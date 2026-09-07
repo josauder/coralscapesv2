@@ -191,28 +191,18 @@ code[class*="language-"] .token {
   max-height: 74px;
 }
 
-/* Greyed partner logos + text chips */
-.partner-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem 2.4rem;
-  margin-top: 1.5rem;
+/* Partner / collaborating institution logos: one row, greyed, uniform height. */
+.logo-row.is-partners {
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-.partner-row img {
-  max-height: 56px;
+.logo-row.is-partners img {
+  max-height: 46px;
   width: auto;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.62;
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
-
-.partner-row img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .partner-chip {
@@ -323,4 +313,40 @@ code[class*="language-"] .token {
 
 .section-anchor {
   scroll-margin-top: 1rem;
+}
+
+/* Copy-to-clipboard button for code blocks and BibTeX */
+pre {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #555;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  z-index: 2;
+}
+
+pre:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: #f0f0f0;
+}
+
+.copy-btn.copied {
+  color: #1f9d55;
+  border-color: #1f9d55;
 }
