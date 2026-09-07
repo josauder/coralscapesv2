@@ -54,13 +54,11 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <span class="v2-badge">CoralscapesV2</span>
             <h1 class="title is-1 publication-title"><b>CoralscapesV2:</b> <br>
               Panoptic and Fine-Grained<br> Visual Scene Understanding in Coral Reefs</h1>
             <div class="is-size-5 publication-authors">
               <br>
-              <!-- VENUE: update this line once the venue is confirmed -->
-              <span>Under Review &middot; Preprint on OpenReview</span>
+              <span>ECCV 2026 Workshop on Marine Vision</span>
               <br>
               <!-- ============================================================
                    AUTHOR LINKS: to add a personal website for an author, put
@@ -548,9 +546,10 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
           <h2 class="title is-3 has-text-centered">Pretrained Models</h2>
           <h2 class="subtitle has-text-centered">
             We release semantic segmentation models trained on CoralscapesV2, in both the fine-grained 95-class set and
-            the legacy 39-class set. All models are trained with the
+            the legacy 39-class set. The DINOv3 models are trained with the
             <a href="https://github.com/josauder/dinov3_lora_dpt_coralscapes" target="_blank">dinov3_lora_dpt_coralscapes</a>
-            repository.
+            repository, and the SegFormer models with
+            <a href="https://github.com/eceo-epfl/coralscapesScripts" target="_blank">coralscapesScripts</a>.
           </h2>
 
           <div class="table-container">
@@ -754,6 +753,7 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
       <pre><code>@inproceedings{sauder2026coralscapesv2,
   title={CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs},
   author={Sauder, Jonathan and Ruckli, Thomas and Strodomskyt{\.e}, Gabriel{\.e} and Abdallah, Ibrahim Souleiman and Abdi, Rahma Hassan and Awaleh, Djama Goumaneh and Farah, Mohamed Houssein and Nour, Moustapha and Saad, Osama Sharhubil and Altaib, Mustafa Mohammed Khalafallah and Kteifan, Maysoon and Alsoqi, Farah and Zgool, Eyad and Al-Omari, Jafar and Gebreluel, Temesgen Gebremeskel and Abdulkerim, Zekaria Zekeria and Ghirmay, Meron and Beraki, Teklehaimanot and Tuia, Devis and Banc-Prandi, Guilhem},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshop on Marine Vision},
   year={2026}
 }</code></pre>
     </div>
