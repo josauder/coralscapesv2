@@ -315,6 +315,11 @@ code[class*="language-"] .token {
   scroll-margin-top: 1rem;
 }
 
+/* Give the Pretrained Models section (table + snippets) a little more width. */
+#models .container.is-max-desktop {
+  max-width: 1060px;
+}
+
 /* Copy-to-clipboard button for code blocks and BibTeX */
 pre {
   position: relative;

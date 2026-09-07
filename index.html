@@ -66,11 +66,11 @@
               <span class="author-block">
                 <a href="https://josauder.github.io/" target="_blank">Jonathan Sauder</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Thomas Ruckli</a><sup>2</sup>,</span>
+                <a href="#" target="https://thomasruckli.ch/">Thomas Ruckli</a><sup>2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Gabriel&#279; Strodomskyt&#279;</a><sup>2</sup>,</span>
+                <a href="#" target="https://www.linkedin.com/in/gabriele-strodomskyte-10832824b/">Gabriel&#279; Strodomskyt&#279;</a><sup>2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Ibrahim Souleiman Abdallah</a><sup>3</sup>,</span>
+                <a href="#" target="https://www.linkedin.com/in/ibrahim-souleiman-abdallah-928238151/">Ibrahim Souleiman Abdallah</a><sup>3</sup>,</span>
               <span class="author-block">
                 <a href="#" target="_blank">Rahma Hassan Abdi</a><sup>3</sup>,</span>
               <span class="author-block">
@@ -201,9 +201,6 @@
           <!-- Replace with the full-length H.264 clip at the same path when ready -->
           <source src="static/videos/banner_video_v2.mp4" type="video/mp4">
         </video>
-        <p class="is-size-7 has-text-centered" style="margin-top:0.5rem; color:#777;">
-          Panoptic prediction: dense semantic classes for the benthos and individual instance masks for every fish.
-        </p>
       </div>
     </div>
   </section>
@@ -653,12 +650,6 @@ label = clip["label"]                    # semantic mask for the anchor frame</c
               </tbody>
             </table>
           </div>
-          <p class="is-size-7" style="color:#777;">
-            Test-set pixel accuracy and mean IoU on CoralscapesV2, using the strided 2&times;1024&times;1024 prediction
-            protocol; metrics are reported in each model's native class set. The 95-class models are additionally
-            evaluated with predictions mapped to the 39-class set, and single-pass (768&times;1376) numbers are
-            reported in each model card.
-          </p>
 
           <h3 class="title is-5" style="margin-top:2rem;">Run a SegFormer model</h3>
           <pre><code class="language-python">from transformers import SegformerImageProcessor, SegformerForSemanticSegmentation
@@ -713,18 +704,18 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
   <!-- Transnational Red Sea Center -->
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Transnational Red Sea Center</h2>
-        <div class="content has-text-justified">
-          <p>The <u><a href="http://trsc.org">Transnational Red Sea Center</a></u> is a scientific research center
-            created in 2019 at the Ecole Polytechnique f&eacute;d&eacute;rale in Lausanne (EPFL) with the official
-            support of the Swiss Foreign Ministry. An independent and not-for-profit organization, the Center
-            capitalizes on Switzerland's neutrality, its longstanding tradition of promoting dialogue and its
-            reputation for scientific excellence in order to bridge science and diplomacy for the future of coral
-            reefs. In the Red Sea and beyond.</p>
-        </div>
-        <div class="columns is-centered has-text-centered">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
           <div class="column is-four-fifths">
+            <h2 class="title is-3 has-text-centered">Transnational Red Sea Center</h2>
+            <div class="content has-text-justified">
+              <p>The <u><a href="http://trsc.org">Transnational Red Sea Center</a></u> is a scientific research center
+                created in 2019 at the Ecole Polytechnique f&eacute;d&eacute;rale in Lausanne (EPFL) with the official
+                support of the Swiss Foreign Ministry. An independent and not-for-profit organization, the Center
+                capitalizes on Switzerland's neutrality, its longstanding tradition of promoting dialogue and its
+                reputation for scientific excellence in order to bridge science and diplomacy for the future of coral
+                reefs. In the Red Sea and beyond.</p>
+            </div>
             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1167138428?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Return to the Gulf of Tadjoura / Djibouti - Septembre 2025"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
           </div>
         </div>
@@ -736,7 +727,7 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">Citation (BibTeX)</h2>
+      <h2 class="title has-text-centered">Citation (BibTeX)</h2>
       <pre><code>@inproceedings{sauder2026coralscapesv2,
   title={CoralscapesV2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs},
   author={Sauder, Jonathan and Ruckli, Thomas and Strodomskyt{\.e}, Gabriel{\.e} and Abdallah, Ibrahim Souleiman and Abdi, Rahma Hassan and Awaleh, Djama Goumaneh and Farah, Mohamed Houssein and Nour, Moustapha and Saad, Osama Sharhubil and Altaib, Mustafa Mohammed Khalafallah and Kteifan, Maysoon and Alsoqi, Farah and Zgool, Eyad and Al-Omari, Jafar and Gebreluel, Temesgen Gebremeskel and Abdulkerim, Zekaria Zekeria and Ghirmay, Meron and Beraki, Teklehaimanot and Tuia, Devis and Banc-Prandi, Guilhem},
