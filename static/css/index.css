@@ -117,12 +117,26 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  padding: 20px;
+  padding: 12px 20px 20px;
   font-size: 0;
 }
 
-.results-carousel video {
+.results-carousel video.carousel-video {
   margin: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #0a1620;
+  aspect-ratio: 2 / 1;
+  object-fit: contain;
+}
+
+.carousel-legend {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0.75rem auto 0;
+  height: auto;
 }
 
 .slider-pagination .slider-page {

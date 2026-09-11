@@ -671,34 +671,118 @@ pred = logits.argmax(1)[0].cpu().numpy()</code></pre>
 
 
   
-<!-- Image carousel -->
+<!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+      <h2 class="title is-3 has-text-centered">Example Panoptic Annotations</h2>
       <div id="results-carousel" class="carousel results-carousel has-text-centered">
         <div class="item">
-          <img src="static/images/fig_new_frames.png" alt="New annotated frames in CoralscapesV2" width="100%" />
-          <h2 class="subtitle has-text-centered">More scenes: 358 new frames broaden the diversity of the dataset</h2>
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/test-site1_000036_011193.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="item">
-          <img src="static/images/fig_fish_diff.png" alt="Fish annotation difference between V1 and V2"
-            width="100%" />
-          <h2 class="subtitle has-text-centered">Video-based fish annotation recovers fish missed in V1</h2>
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/test-site22_000101_034765.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="item">
-          <img src="static/images/fig_aux_classes.png" alt="New auxiliary classes in CoralscapesV2" width="100%" />
-          <h2 class="subtitle has-text-centered">New auxiliary classes: water column, water surface, background</h2>
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/test-site22_000175_001934.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="item">
-          <img src="static/images/fig_predictions.png" alt="Qualitative segmentation predictions" width="100%" />
-          <h2 class="subtitle has-text-centered">Qualitative predictions: SegFormer and DINOv3 models on the V2 test
-            set</h2>
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/test-site22_000184_000282.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site10_000034_003896.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site11_000068_017682.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site14_000078_010489.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site14_000115_004495.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site17_000010_001498.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site18_000020_017382.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site19_000071_004495.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site19_000128_000299.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site20_000092_000664.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site2_000026_003461.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site30_000149_001420.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site30_000185_001816.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site32_000031_003960.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site36_000004_000176.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site7_000160_000061.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video class="carousel-video" muted playsinline preload="metadata" width="100%">
+            <source src="static/videos/carousel/train-site9_000252_021107.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
+      <img class="carousel-legend" src="static/images/legend_39.png" alt="39-class Coralscapes legend" width="100%" />
     </div>
   </div>
 </section>
-<!-- End image carousel -->
+<!-- End video carousel -->
 
   <!-- Transnational Red Sea Center -->
   <section class="hero is-small">
